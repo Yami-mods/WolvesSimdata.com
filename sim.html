@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pak Sim Data</title>
+    <style>
+/* General body styling with background animation */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(90deg, #141e30, #243b55); /* Dark gradient */
+    background-size: 400% 400%;
+    animation: backgroundAnimate 30s infinite;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+    background-image: url(https://i.postimg.cc/9WjFkQm4/bg.jpg);
+}
+
+@keyframes backgroundAnimate {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Main container with mirror-like effect and glow */
+.container {
+    background: linear-gradient(145deg, rgb(10, 10, 10), rgba(8, 8, 8, 0.938));
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.4), 0 0 45px rgba(0, 255, 255, 0.3);
+    animation: containerGlow 3s infinite alternate;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+@keyframes containerGlow {
+    0% { box-shadow: 0 0 15px rgba(0, 255, 255, 0.5); }
+    100% { box-shadow: 0 0 30px rgba(255, 255, 255, 0.8); }
+}
+
+/* Heading styling */
+h1 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    font-size: 36px;
+    animation: textGlow 3s infinite alternate;
+}
+
+@keyframes textGlow {
+    0% { text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(0, 0, 0, 0.8); }
+    100% { text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 0, 0, 1); }
+}
+
+/* Input container for mobile number */
+input[type="text"] {
+    width: 80%;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    outline: none;
+    margin: 10px 0;
+    transition: box-shadow 0.3s ease;
+    max-width: 300px;  /* Limit the maximum width */
+}
+
+input[type="text"]:focus {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 0, 0, 0.8);
+}
+
+@media (max-width: 768px) {
+    input[type="text"] {
+        width: 90%;
+        font-size: 14px;
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 480px) {
+    input[type="text"] {
+        width: 100%;
+        font-size: 13px;
+        max-width: 250px;
+    }
+}
+
+/* Glowing submit button */
+input[type="submit"] {
+    background: rgba(255, 0, 0, 0.8);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 50%;
+    margin: 10px auto;
+    display: block;
+    text-align: center;
+    animation: buttonGlow 3s infinite alternate;
+    transition: transform 0.2s ease;
+}
+
+input[type="submit"]:hover {
+    transform: scale(1.1);
+}
+
+@keyframes buttonGlow {
+    0% { box-shadow: 0 0 15px rgba(255, 0, 0, 0.6); }
+    100% { box-shadow: 0 0 25px rgba(255, 0, 0, 1); }
+}
+
+/* Response container with black glow and large font size */
+.result {
+    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 0, 0, 0.8);
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.5;
+    position: relative; /* For the copy button */
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* Copy button inside the response container */
+.copy-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.copy-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Developed by Musa - glowing text at bottom-center, moved 5 inches up and enlarged */
+.developer {
+    position: absolute;
+    bottom: 80px; /* 5 inches higher than original position */
+    text-align: center;
+    width: 100%;
+    font-size: 20px; /* Increased font size */
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.7);
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.7), 0 0 20px rgba(255, 0, 0, 0.8);
+    animation: textZoom 3s infinite alternate;
+}
+
+@keyframes textZoom {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+.telegram-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: url('https://i.postimg.cc/bw1YvKTN/dark-logo.jpg') no-repeat center/cover;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    animation: telegramGlow 2s infinite alternate, telegramRotate 5s linear infinite;
+}
+
+@keyframes telegramGlow {
+    0% { box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); }
+    100% { box-shadow: 0 0 20px rgba(0, 0, 0, 1); }
+}
+
+@keyframes telegramRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    .developer {
+        font-size: 18px;
+        bottom: 70px; /* Adjusted for tablets */
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 100%;
+    }
+
+    .developer {
+        font-size: 16px;
+        bottom: 60px; /* Adjusted for mobile */
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="glow-container"></div>
+    <div class="container">
+        <h1>𝙒𝙤𝙡𝙫𝙚𝙨 𝗦𝗶𝗺 𝗗𝗮𝘁𝗮</h1>
+        <form method="post">
+            <div class="form-group">
+                <label for="mobile" style="color: white;">Enter Mobile Number</label>
+                <input type="text" id="mobile" name="mobile" placeholder="Enter mobile number without 0" required>
+            </div>
+            <input type="submit" name="submit" value="𝗦𝗲𝗮𝗿𝗰𝗵">
+        </form>
+            </div>
+    <div class="developer">𝗗𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿 ↬𝙔𝘼𝙈𝙄</div>
+    <div class="telegram-button">
+        <a href="https://wa.link/hnhryo" target="_blank">
+           
+            
+        </a>
+    </div>
+
+
+   
+   
+</html>
